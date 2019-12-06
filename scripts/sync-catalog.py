@@ -229,7 +229,7 @@ def list_portfolios():
 
     while not done:
         if nextmarker:
-            portfolio_response = client.list_portfolios(nextmarker=nextmarker)
+            portfolio_response = client.list_portfolios(PageToken=nextmarker)
         else:
             portfolio_response = client.list_portfolios()
 
@@ -256,7 +256,7 @@ def list_products_for_portfolio(id):
 
     while not done:
         if nextmarker:
-            product_response = client.search_products_as_admin(nextmarker=nextmarker, PortfolioId=id)
+            product_response = client.search_products_as_admin(PageToken=nextmarker, PortfolioId=id)
         else:
             product_response = client.search_products_as_admin(PortfolioId=id)
 
@@ -391,7 +391,7 @@ def list_portfolio_shares(portfolioid):
 
     while not done:
         if nextmarker:
-            lst_portfolio_access = client.list_portfolio_access(nextmarker=nextmarker, PortfolioId=portfolioid)
+            lst_portfolio_access = client.list_portfolio_access(PageToken=nextmarker, PortfolioId=portfolioid)
         else:
             lst_portfolio_access = client.list_portfolio_access(PortfolioId=portfolioid)
 
